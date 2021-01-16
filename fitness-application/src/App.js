@@ -1,20 +1,25 @@
+import logo from './logo.svg';
 import './App.css';
-import React from "react";
-import NavBar from "./navbar/Navbar";
-import {createBrowserHistory} from "history";
-import {BrowserRouter} from 'react-router-dom';
-
-const history = createBrowserHistory();
 
 function App() {
-    return (
-        <BrowserRouter history={history} basename={'/fitness'}>
-            <div className="App">
-                <h1>Fitness</h1>
-                <NavBar/>
-            </div>
-        </BrowserRouter>
-    );
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
