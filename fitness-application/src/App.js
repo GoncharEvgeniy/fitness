@@ -2,7 +2,8 @@ import './App.css';
 import React from "react";
 import NavBar from "./navbar/Navbar";
 import {createBrowserHistory} from "history";
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import Login from "./login/Login";
 
 const history = createBrowserHistory();
 
@@ -12,6 +13,9 @@ function App() {
             <div className="App">
                 <h1>Fitness</h1>
                 <NavBar/>
+                <Switch>
+                    <Route exact path={'/login'} component={Login}/>
+                </Switch>
             </div>
         </BrowserRouter>
     );
