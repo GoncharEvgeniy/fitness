@@ -4,12 +4,12 @@ import {NavLink} from "react-router-dom";
 function NavBar() {
     return (
         <div className="App">
-            <h2>
+            <h1>
                 <nav>
-                    <NavLink extract to={"/"}>Main</NavLink>
-                    <NavLink extract to={"/login"}>Login</NavLink>
+                    <NavLink extract to="/"> Main </NavLink>
+                    <NavLink extract to="/login"> Login </NavLink>
                 </nav>
-            </h2>
+            </h1>
         </div>
     );
 }
