@@ -9,7 +9,7 @@ const history = createBrowserHistory();
 
 function App() {
     return (
-        <BrowserRouter history={history} basename={'/fitness'}>
+        <BrowserRouter history={history} basename={'/'}>
             <div className="App">
                 <h1>Fitness</h1>
                 <NavBar/>
