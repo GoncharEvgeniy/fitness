@@ -2,9 +2,11 @@ package com.fitness.controller;
 
 import com.fitness.dto.RegistrationFormDto;
 import com.fitness.dto.UserDto;
+import com.fitness.exception.UsernameOrEmailExistException;
 import com.fitness.model.User;
 import com.fitness.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +27,14 @@ public class MainController {
     @PostMapping("reg")
     public ResponseEntity Registration(@RequestBody RegistrationFormDto registrationFormDto) {
         User user = RegistrationFormDto.toUser(registrationFormDto);
-        UserDto savedUser = new UserDto(userService.save(user));
+        UserDto savedUser;
+        try {
+            savedUser = new UserDto(userService.save(user));
+        } catch (UsernameOrEmailExistException e) {
+            return ResponseEntity
+                    .status(HttpStatus.FORBIDDEN.value())
+                    .body(e.getMessage());
+        }
         return ResponseEntity.ok(savedUser);
     }
 
