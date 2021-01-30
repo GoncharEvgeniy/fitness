@@ -36,6 +36,9 @@ public class User implements UserDetails {
     @JoinColumn(name = "role_id")
     private Role role;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "is_account_non_expired")
     private boolean isAccountNonExpired = true;
 
