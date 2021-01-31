@@ -4,6 +4,7 @@ import NavBar from "./navbar/Navbar";
 import {createBrowserHistory} from "history";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Login from "./login/Login";
+import Registration from "./registration/Registration";
 
 const history = createBrowserHistory();
 
@@ -15,6 +16,7 @@ function App() {
                 <NavBar/>
                 <Switch>
                     <Route exact path={'/login'} component={Login}/>
+                    <Route exact path={'/registration'} component={Registration}/>
                 </Switch>
             </div>
         </BrowserRouter>

@@ -8,6 +8,7 @@ function NavBar() {
                 <nav>
                     <NavLink extract to="/"> Main </NavLink>
                     <NavLink extract to="/login"> Login </NavLink>
+                    <NavLink extract to="/registration"> Registration </NavLink>
                 </nav>
             </h1>
         </div>
