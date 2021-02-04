@@ -2,7 +2,7 @@ import React from "react";
 import LoginForm from "./LoginForm";
 import {connect} from "react-redux";
 
-function Login() {
+const Login = () => {
     return(
         <div>
             <h2>

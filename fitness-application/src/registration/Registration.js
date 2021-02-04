@@ -1,15 +1,20 @@
 import React from "react";
 import {connect} from "react-redux";
-import RegistartionForm from "./RegistartionForm";
+import RegistrationForm from "./RegistrationForm";
 
-function Registration() {
+const Registration = () => {
+
+    const handleRegistration = (values) => {
+        console.log(values);
+    }
+
     return(
         <div>
             <h2>
-                Login
+                Registration
             </h2>
             <div>
-                <RegistartionForm />
+                <RegistrationForm handleSubmit={handleRegistration} />
             </div>
         </div>
     );

@@ -8,7 +8,7 @@ import Registration from "./registration/Registration";
 
 const history = createBrowserHistory();
 
-function App() {
+const App = () => {
     return (
         <BrowserRouter history={history} basename={'/fitness'}>
             <div className="App">

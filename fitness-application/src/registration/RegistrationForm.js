@@ -2,10 +2,11 @@ import React from "react";
 import {Field, reduxForm} from "redux-form";
 import InputField from "../common/InputField";
 
-function RegistrationForm() {
+const RegistrationForm = (props) => {
+    const {handleSubmit} = props;
     return (
         <div>
-            <form className="container col-sm-3">
+            <form className="container col-sm-3" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <Field
                         name="username"
@@ -43,11 +44,11 @@ function RegistrationForm() {
                     />
                 </div>
                 <div>
-                    <button className="btn btn-success"> Registration </button>
+                    <button className="btn btn-success" type="submit" > Registration </button>
                 </div>
             </form>
         </div>
     );
 }
 
-export default reduxForm({form: 'loginForm'})(RegistrationForm);
+export default reduxForm({form: 'registrationForm'})(RegistrationForm);

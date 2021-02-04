@@ -2,7 +2,7 @@ import React from "react";
 import {Field, reduxForm} from "redux-form";
 import InputField from "../common/InputField";
 
-function LoginForm() {
+const LoginForm = () => {
     return (
         <div>
             <form className="container col-sm-3">
