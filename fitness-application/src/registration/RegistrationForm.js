@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import InputField from "../common/InputField";
 
 const RegistrationForm = (props) => {
-    const {handleSubmit} = props;
+    const {handleRegistration} = props;
     return (
         <div>
-            <form className="container col-sm-3" onSubmit={handleSubmit}>
+            <form className="container col-sm-3" onSubmit={handleRegistration} >
                 <div className="form-group">
                     <Field
                         name="username"

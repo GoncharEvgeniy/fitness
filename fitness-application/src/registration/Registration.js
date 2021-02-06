@@ -1,11 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 import RegistrationForm from "./RegistrationForm";
+import {registration} from "../action/SecurityAction";
 
-const Registration = () => {
+const Registration = (props) => {
 
-    const handleRegistration = (values) => {
-        console.log(values);
+    async function handleRegistration(values) {
+        props.registration(values);
     }
 
     return(
@@ -14,10 +16,14 @@ const Registration = () => {
                 Registration
             </h2>
             <div>
-                <RegistrationForm handleSubmit={handleRegistration} />
+                <RegistrationForm handleRegistration={handleRegistration} />
             </div>
         </div>
     );
 }
 
-export default connect()(Registration);
+Registration.propTypes = {
+    registration: PropTypes.func.isRequired
+};
+
+export default connect(undefined, {registration})(Registration);
