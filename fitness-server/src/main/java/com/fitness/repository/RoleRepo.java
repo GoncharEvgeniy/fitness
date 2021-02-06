@@ -1,7 +1,11 @@
 package com.fitness.repository;
 
-import com.fitness.model.Exercise;
+import com.fitness.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface RoleRepo {
+@Repository
+public interface RoleRepo extends JpaRepository<Role, Long> {
+
+    Role findByName(String name);
 }
