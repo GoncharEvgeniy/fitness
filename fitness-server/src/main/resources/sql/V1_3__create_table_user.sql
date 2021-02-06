@@ -2,7 +2,9 @@ CREATE TABLE `usrs`
 (
     `id`                         BIGINT(20)   NOT NULL AUTO_INCREMENT,
     `username`                   VARCHAR(255) NOT NULL UNIQUE,
+    `password`                   VARCHAR(255) NOT NULL,
     `role_id`                    BIGINT(20)   NOT NULL,
+    `email`                      VARCHAR(255) NOT NULL UNIQUE,
     `is_account_non_expired`     BIT(1)       NULL DEFAULT NULL,
     `is_account_non_locked`      BIT(1)       NULL DEFAULT NULL,
     `is_credentials_non_expired` BIT(1)       NULL DEFAULT NULL,
