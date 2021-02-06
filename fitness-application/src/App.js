@@ -1,13 +1,13 @@
 import React from "react";
 import './App.css';
-import {createBrowserHistory} from "history";
+import createHistory from "history/createBrowserHistory";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import NavBar from "./navbar/Navbar";
 import Login from "./login/Login";
 import Registration from "./registration/Registration";
 import {connect} from "react-redux";
 
-const history = createBrowserHistory();
+const history = createHistory();
 
 const App = (props) => {
     return (

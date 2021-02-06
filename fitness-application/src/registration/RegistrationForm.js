@@ -3,10 +3,10 @@ import {Field, reduxForm} from "redux-form";
 import InputField from "../common/InputField";
 
 const RegistrationForm = (props) => {
-    const {handleRegistration} = props;
+    const {handleSubmit, errors } = props;
     return (
         <div>
-            <form className="container col-sm-3" onSubmit={handleRegistration} >
+            <form className="container col-sm-3" onSubmit={handleSubmit} >
                 <div className="form-group">
                     <Field
                         name="username"
@@ -44,11 +44,12 @@ const RegistrationForm = (props) => {
                     />
                 </div>
                 <div>
-                    <button className="btn btn-success" type="submit" > Registration </button>
+                    <button className="btn btn-success"
+                            type="submit" > Registration </button>
                 </div>
             </form>
         </div>
     );
-}
+};
 
 export default reduxForm({form: 'registrationForm'})(RegistrationForm);

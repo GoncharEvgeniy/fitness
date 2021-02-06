@@ -10,6 +10,7 @@ const SecurityReducer = (state = initState, action) => {
         case REGISTRATION:
             return {
                 ...state,
+                errors: action.error
             }
         default:
             return state;

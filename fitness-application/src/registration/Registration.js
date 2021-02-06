@@ -16,14 +16,20 @@ const Registration = (props) => {
                 Registration
             </h2>
             <div>
-                <RegistrationForm handleRegistration={handleRegistration} />
+                <RegistrationForm onSubmit={handleRegistration} errors={props.errors} />
             </div>
         </div>
     );
-}
+};
 
 Registration.propTypes = {
     registration: PropTypes.func.isRequired
 };
 
-export default connect(undefined, {registration})(Registration);
+const mapStateToProps = (state) => {
+    return {
+        errors: state.security.errors
+    };
+};
+
+export default connect(mapStateToProps, {registration})(Registration);
