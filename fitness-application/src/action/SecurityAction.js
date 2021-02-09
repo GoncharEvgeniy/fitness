@@ -8,10 +8,14 @@ export const registration = (newUser) => async dispatch => {
             console.log(response);
             dispatch({
                 type: REGISTRATION
-            })
+            });
         },
         error => {
-            console.log(error);
+            console.log(error.response);
+            dispatch({
+                type: REGISTRATION,
+                error: error.response.data
+            });
         }
     );
 

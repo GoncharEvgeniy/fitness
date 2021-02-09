@@ -4,8 +4,14 @@ import InputField from "../common/InputField";
 
 const RegistrationForm = (props) => {
     const {handleSubmit, errors } = props;
+    console.log(errors);
+    let error;
+    if (errors && "" !== errors) {
+        error = <h4><span className="text text-danger">{errors}</span></h4>;
+    }
     return (
         <div>
+            {error}
             <form className="container col-sm-3" onSubmit={handleSubmit} >
                 <div className="form-group">
                     <Field
