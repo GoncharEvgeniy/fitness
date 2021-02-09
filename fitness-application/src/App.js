@@ -1,13 +1,15 @@
-import './App.css';
 import React from "react";
-import NavBar from "./navbar/Navbar";
-import {createBrowserHistory} from "history";
+import './App.css';
+import createHistory from "history/createBrowserHistory";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import NavBar from "./navbar/Navbar";
 import Login from "./login/Login";
+import Registration from "./registration/Registration";
+import {connect} from "react-redux";
 
-const history = createBrowserHistory();
+const history = createHistory();
 
-function App() {
+const App = (props) => {
     return (
         <BrowserRouter history={history} basename={'/fitness'}>
             <div className="App">
@@ -15,10 +17,11 @@ function App() {
                 <NavBar/>
                 <Switch>
                     <Route exact path={'/login'} component={Login}/>
+                    <Route exact path={'/registration'} component={Registration}/>
                 </Switch>
             </div>
         </BrowserRouter>
     );
 }
 
-export default App;
+export default connect()(App);
