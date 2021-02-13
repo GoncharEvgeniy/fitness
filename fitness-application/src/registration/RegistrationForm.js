@@ -1,7 +1,7 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import InputField from "../common/InputField";
-import {required} from "../common/FieldValidation";
+import {maxLength16, minLength4, minLength6, required} from "../common/FieldValidation";
 
 const RegistrationForm = (props) => {
     const {handleSubmit, errors } = props;
@@ -20,7 +20,7 @@ const RegistrationForm = (props) => {
                         type="text"
                         label="Username"
                         className="form-control"
-                        validate={[required]}
+                        validate={[required, maxLength16, minLength4]}
                     />
                 </div>
                 <div className="form-group">
@@ -30,7 +30,7 @@ const RegistrationForm = (props) => {
                         type="password"
                         label="Password"
                         className="form-control"
-                        validate={[required]}
+                        validate={[required, maxLength16, minLength6]}
                     />
                 </div>
                 <div className="form-group">
@@ -40,7 +40,7 @@ const RegistrationForm = (props) => {
                         type="password"
                         label="Confirm password"
                         className="form-control"
-                        validate={[required]}
+                        validate={[required, maxLength16, minLength6]}
                     />
                 </div>
                 <div className="form-group">
