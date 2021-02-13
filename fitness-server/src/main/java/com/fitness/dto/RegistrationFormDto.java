@@ -2,12 +2,22 @@ package com.fitness.dto;
 
 import com.fitness.model.User;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class RegistrationFormDto {
 
+    @NotBlank
+    @Size(min = 4, max = 16)
     private String username;
 
+    @NotBlank
+    @Size(min = 6, max = 16)
     private String password;
 
+    @NotBlank
+    @Email
     private String email;
 
     public static User toUser(RegistrationFormDto registrationFormDto) {
