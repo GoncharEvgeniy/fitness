@@ -17,7 +17,7 @@ export const registration = (newUser) => async dispatch => {
                     type: REGISTRATION,
                     error: error.response.data
                 });
-            } else if (error.response.status === 403) {
+            } else {
                 dispatch({
                     type: REGISTRATION,
                     error: error.response.data.error
