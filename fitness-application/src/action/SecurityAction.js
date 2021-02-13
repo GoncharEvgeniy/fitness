@@ -12,10 +12,17 @@ export const registration = (newUser) => async dispatch => {
         },
         error => {
             console.log(error.response);
-            dispatch({
-                type: REGISTRATION,
-                error: error.response.data
-            });
+            if (error.response.status === 403) {
+                dispatch({
+                    type: REGISTRATION,
+                    error: error.response.data
+                });
+            } else if (error.response.status === 403) {
+                dispatch({
+                    type: REGISTRATION,
+                    error: error.response.data.error
+                });
+            }
         }
     );
 

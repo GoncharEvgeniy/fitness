@@ -1,10 +1,10 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import InputField from "../common/InputField";
+import {required} from "../common/FieldValidation";
 
 const RegistrationForm = (props) => {
     const {handleSubmit, errors } = props;
-    console.log(errors);
     let error;
     if (errors && "" !== errors) {
         error = <h4><span className="text text-danger">{errors}</span></h4>;
@@ -20,6 +20,7 @@ const RegistrationForm = (props) => {
                         type="text"
                         label="Username"
                         className="form-control"
+                        validate={[required]}
                     />
                 </div>
                 <div className="form-group">
@@ -29,6 +30,7 @@ const RegistrationForm = (props) => {
                         type="password"
                         label="Password"
                         className="form-control"
+                        validate={[required]}
                     />
                 </div>
                 <div className="form-group">
@@ -38,6 +40,7 @@ const RegistrationForm = (props) => {
                         type="password"
                         label="Confirm password"
                         className="form-control"
+                        validate={[required]}
                     />
                 </div>
                 <div className="form-group">
@@ -47,6 +50,7 @@ const RegistrationForm = (props) => {
                         type="email"
                         label="Email"
                         className="form-control"
+                        validate={[required]}
                     />
                 </div>
                 <div>
