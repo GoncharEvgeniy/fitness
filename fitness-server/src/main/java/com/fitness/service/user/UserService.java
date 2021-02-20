@@ -6,4 +6,6 @@ import com.fitness.model.User;
 public interface UserService {
 
     User save(User user) throws UsernameOrEmailExistException;
+
+    User findByUsername(String username);
 }
