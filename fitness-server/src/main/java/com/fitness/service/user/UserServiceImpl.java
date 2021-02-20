@@ -51,6 +51,11 @@ public class UserServiceImpl implements UserService {
         return userRepo.save(user);
     }
 
+    @Override
+    public User findByUsername(String username) {
+        return userRepo.findByUsername(username);
+    }
+
     private Role getRole() {
         Role role = roleService.findByName(DEFAULT_ROLE_NAME);
         if (isNull(role)) {
