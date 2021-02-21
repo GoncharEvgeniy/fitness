@@ -3,8 +3,8 @@ import './App.css';
 import createHistory from "history/createBrowserHistory";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import NavBar from "./navbar/Navbar";
-import Login from "./login/Login";
-import Registration from "./registration/Registration";
+import Login from "./page/login/Login";
+import Registration from "./page/registration/Registration";
 import {connect} from "react-redux";
 
 const history = createHistory();

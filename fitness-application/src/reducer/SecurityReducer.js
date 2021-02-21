@@ -1,4 +1,4 @@
-import {REGISTRATION} from "../action/ActionType";
+import {LOGIN, REGISTRATION} from "../action/ActionType";
 
 const initState = {
     currentUser: {},
@@ -8,6 +8,11 @@ const initState = {
 const SecurityReducer = (state = initState, action) => {
     switch (action.type) {
         case REGISTRATION:
+            return {
+                ...state,
+                errors: action.error
+            };
+        case LOGIN:
             return {
                 ...state,
                 errors: action.error

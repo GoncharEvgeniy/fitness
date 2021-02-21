@@ -1,11 +1,18 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
-import InputField from "../common/InputField";
+import InputField from "../../common/InputField";
+import {maxLength16, minLength4, minLength6, required} from "../../common/FieldValidation";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
+    const {handleSubmit, errors} = props;
+    let error;
+    if (errors && "" !== errors) {
+        error = <h4><span className="text text-danger">{errors}</span></h4>;
+    }
     return (
         <div>
-            <form className="container col-sm-3">
+            {error}
+            <form className="container col-sm-3" onSubmit={handleSubmit}>
                 <div className="form-group">
                     <Field
                         name="username"
@@ -13,6 +20,7 @@ const LoginForm = () => {
                         type="text"
                         label="Username"
                         className="form-control"
+                        validate={[required, maxLength16, minLength4]}
                     />
                 </div>
                 <div className="form-group">
@@ -22,10 +30,12 @@ const LoginForm = () => {
                         type="password"
                         label="Password"
                         className="form-control"
+                        validate={[required, maxLength16, minLength6]}
                     />
                 </div>
                 <div>
-                    <button className="btn btn-success"> Login </button>
+                    <button className="btn btn-success"
+                            type="submit"> Login </button>
                 </div>
             </form>
         </div>

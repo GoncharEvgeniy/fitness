@@ -1,7 +1,7 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import InputField from "../common/InputField";
-import {maxLength16, minLength4, minLength6, required} from "../common/FieldValidation";
+import InputField from "../../common/InputField";
+import {maxLength16, minLength4, minLength6, required} from "../../common/FieldValidation";
 
 const RegistrationForm = (props) => {
     const {handleSubmit, errors } = props;
