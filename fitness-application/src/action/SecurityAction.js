@@ -1,5 +1,5 @@
 import * as axios from "axios";
-import {LOGIN, REGISTRATION} from "./ActionType";
+import {LOGIN, LOGOUT, REGISTRATION} from "./ActionType";
 import Config from "../Config";
 
 export const login = (userCred) => async dispatch => {
@@ -48,4 +48,12 @@ export const registration = (newUser) => async dispatch => {
             }
         }
     );
+}
+
+export const logout = () => async dispatch => {
+    localStorage.removeItem('LoginToken');
+    dispatch({
+        type: LOGOUT,
+        payload: {}
+    });
 }
