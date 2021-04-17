@@ -3,15 +3,17 @@ import LoginForm from "./LoginForm";
 import {connect} from "react-redux";
 import {login} from "../../action/SecurityAction";
 import PropsTypes from "prop-types";
+import NavBar from "../../navbar/Navbar";
 
 const Login = (props) => {
 
     async function handleLogin(value) {
-        props.login(value);
+        props.login(value, props.history);
     }
 
     return(
         <div>
+            <NavBar/>
             <h2>
                 Login
             </h2>
