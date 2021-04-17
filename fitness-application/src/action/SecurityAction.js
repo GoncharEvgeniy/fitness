@@ -1,20 +1,21 @@
 import * as axios from "axios";
-import {LOGIN, LOGOUT, REGISTRATION} from "./ActionType";
+import {CLEAR_USERS_FROM_DATABASE, LOGIN, LOGOUT, REGISTRATION, SET_USER} from "./ActionType";
 import Config from "../Config";
+import jwt from "jsonwebtoken";
 
-export const login = (userCred) => async dispatch => {
-    console.log(userCred);
+export const login = (userCred, history) => async dispatch => {
     axios.post(Config.server + Config.loginUrl, userCred).then(
         response => {
-            console.log(response);
             let token = response.headers.authorization.substring(7);
             localStorage.setItem('LoginToken', token);
+            const user = jwt.decode(token);
             dispatch({
-                type: LOGIN
+                type: LOGIN,
+                payload: user
             });
+            history.push('/home');
         },
         error => {
-            console.log(error);
             if (error) {
                 dispatch({
                     type: LOGIN,
@@ -25,16 +26,15 @@ export const login = (userCred) => async dispatch => {
     );
 }
 
-export const registration = (newUser) => async dispatch => {
+export const registration = (newUser, history) => async dispatch => {
     axios.post(Config.server + Config.registrationUrl, newUser).then(
         response => {
-            console.log(response);
             dispatch({
                 type: REGISTRATION
             });
+            history.push('/login');
         },
         error => {
-            console.log(error.response);
             if (error.response.status === 403) {
                 dispatch({
                     type: REGISTRATION,
@@ -55,5 +55,23 @@ export const logout = () => async dispatch => {
     dispatch({
         type: LOGOUT,
         payload: {}
+    });
+}
+
+export const setUser = () => async dispatch => {
+    let token = localStorage.getItem('LoginToken');
+    if(token) {
+        let user = jwt.decode(token);
+        dispatch({
+            type: SET_USER,
+            payload: user
+        })
+    }
+}
+
+export const clearUsersFromDatabase = () => async dispatch => {
+    dispatch({
+        type: CLEAR_USERS_FROM_DATABASE,
+        payload: []
     });
 }
