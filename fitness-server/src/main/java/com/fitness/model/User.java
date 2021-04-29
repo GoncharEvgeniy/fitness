@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Set;
 
 @Data
 @Builder
@@ -39,6 +40,9 @@ public class User implements UserDetails {
     @Column(name = "email")
     private String email;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Day> days;
+
     @Column(name = "is_account_non_expired")
     private boolean isAccountNonExpired = true;
 
@@ -56,5 +60,4 @@ public class User implements UserDetails {
         return Collections.singleton(getRole());
     }
 
-    // private Set<Day> days;
 }
